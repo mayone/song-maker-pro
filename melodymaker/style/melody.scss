@@ -1,0 +1,144 @@
+@import "common.scss";
+
+#MelodyContainer {
+	width: 100%;
+	height: calc(100% - #{$bottomHeight});
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: hidden;
+
+	$tileWidth : percentage(1 / $gridWidth);
+	$tileHeight: percentage(1 / $gridHeight);
+	$highlightMargin : 1px;
+
+	.Tile, .Ghost, .Ghost #Alternate {
+		width: $tileWidth;
+		height: $tileHeight;
+		position: absolute;
+		z-index: 1;
+
+		$dotSize : 5px;
+
+		* {
+			pointer-events: none;
+		}
+
+
+		#Highlight {
+			position: absolute;
+			left: $highlightMargin;
+			top: $highlightMargin;
+			width: calc(100% - #{$highlightMargin * 2});
+			height: calc(100% - #{$highlightMargin * 2});
+			// top: 0px;
+			// left: 0px;
+			// width: 100%;
+			// height: 100%;
+			opacity: 0;
+		}
+
+
+		#Highlight.Visible {
+			opacity: 1;
+		}
+
+		#Dot {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -$dotSize/2;
+			margin-top: -$dotSize/2;
+			width: $dotSize;
+			height: $dotSize;
+			background-color: $grey;
+			border-radius: 50%;
+		}
+	}
+
+	.Tile.Active, .Ghost.Active, .Ghost.Active #Alternate {
+		#Highlight {
+			background-color: black!important;
+			transition: background-color 0s;
+		}
+	}
+
+	.Ghost, .Ghost #Alternate {
+		opacity: 1;
+		pointer-events: none;
+		$transitionTime : 0.2s;
+		// top: -$tileHeight;
+		// left: -$tileWidth;
+		transition: left 0.1s 0.1s, top 0.1s 0s;
+		z-index: 0;
+
+		#Highlight {
+			background-color: rgba($orange,0.5)!important;
+			opacity: 1;
+		}
+	}
+
+	.Ghost.Visible, .Ghost.Visible #Alternate {
+		opacity: 1;
+	}
+
+	.Ghost #Alternate {
+		width: 100%;
+		height: 100%;
+		transform: translate(-100% * $gridWidth, 0px);
+	}
+
+
+	//the note colors
+
+	$C: #4e61d8;
+	$Cs: #8064c6;
+	$D: #a542b1;
+	$Ds: #ed3883;
+	$E: #f75839;
+	$F: #f7943d;
+	$Fs: #f6be37;
+	$G: #d1c12e;
+	$Gs: #95c631;
+	$A: #4bb250;
+	$As: #45b5a1;
+	$B: #4598b6;
+
+	$scaleColors : $G, $A, $B, $C, $D, $E, $F;
+
+	@for $i from 1 through $gridHeight {
+		$scaleIndex : (($i - 1) % length($scaleColors)) + 1;
+        $color: nth($scaleColors, $scaleIndex);
+		.Row#{$i}{
+			// top: $tileHeight * ($i - 1);
+
+			#Highlight{
+				background-color: $color;
+			}
+		}
+	}
+
+	@for $i from -$gridHeight through $gridHeight * 2{
+		.Row#{$i}{
+			top: $tileHeight * ($i - 1);
+		}
+	}
+
+	@for $i from -$gridWidth through $gridWidth * 2 {
+		.Column#{$i}{
+			left: $tileWidth * ($i - 1);
+		}
+	}
+
+	#Indicator {
+		position: absolute;
+		opacity: 0.8;
+		pointer-events: none;
+		left: -$tileWidth;
+		top: 0px;
+		width: $tileWidth;
+		height: 100%;
+		background-color: $lightGrey;
+		z-index: 0;
+	}
+}

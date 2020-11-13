@@ -1,0 +1,59 @@
+@import "common.scss";
+
+$sliderHeight : 28px;
+
+.Slider {
+	width: 100%;
+	height: $sliderHeight;
+	position: absolute;
+	top: -5px;
+	cursor: pointer;
+
+	$railHeight : 8px;
+
+	#Rail {
+		background-color: $grey;
+		height: $railHeight;
+		width: 100%;
+		left: 0px;
+		position: absolute;
+		top: 50%;
+		margin-top: -$railHeight/2;
+		pointer-events: none;
+		border-radius: $railHeight/2;
+
+		#Fill {
+			border-top-left-radius: $railHeight/2;
+			border-bottom-left-radius: $railHeight/2;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 50%;
+			height: 100%;
+			background-color: $blue;			
+		}
+	}
+
+	#Handle {
+		position: absolute;
+		top: 0px;
+		left: 50%;
+		border-radius: $sliderHeight/2;
+		width: $sliderHeight;
+		height: $sliderHeight;
+		background-color: $blue;
+		pointer-events: none;
+		// margin-left: -$sliderHeight/2;
+	}
+
+	#Range {
+		width: 100%;
+		margin: 0px;
+		height: $sliderHeight;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		opacity: 0;
+		cursor: pointer;
+	}
+}
