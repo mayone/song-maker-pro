@@ -1,0 +1,110 @@
+@import "common.scss";
+
+#MicOverlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	left: 0px;
+	top: 0px;
+	opacity: 0;
+	z-index: 0;
+	transition: opacity 0.1s;
+	pointer-events: none;
+	display: none;
+
+	$WaveformHeight : 200px;
+
+	#WaveformContainer {
+		position: absolute;
+		width: 100%;
+		height: $WaveformHeight;
+		// background-color: white;
+		left: 0px;
+		top: 50%;
+		margin-top: -$WaveformHeight/2;
+
+		canvas {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0px;
+			top: 0px;
+		}
+
+		#Playhead {
+			$width: 10px;
+			border-radius: $width / 2;
+			position: absolute;
+			left: 0px;
+			height: 100%;
+			background-color: $red;
+			width: $width;
+			margin-left: 2px;
+		}
+	}
+
+	$CountDownSize : 40px;
+
+	#CountDown {
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		font-size: $CountDownSize;
+		height: $CountDownSize;
+		line-height: $CountDownSize;
+		top: 30%;
+		font-family: sans-serif;
+	}
+
+	#Cancel {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		margin-left: 0px;
+		box-shadow: none;
+		color: $grey;
+		background-color: white;
+		font-size: 40px;
+	}
+
+	#Cancel:active {
+		color: black;
+	}
+}
+
+@keyframes Scrub {
+	0% {
+		left: 0px;
+		opacity: 0;
+	}
+	3% {
+		left: 0px;
+		opacity: 0;
+	}
+	3.5% { 
+		left: 0px;
+		opacity: 1;
+	}
+	14% {
+		left: 0px;
+		opacity: 1;
+	}
+	100% {
+		left: 100%;
+		opacity: 1;
+	}
+}
+
+#MicOverlay.Visible {
+	display: initial;
+	opacity: 1;
+	pointer-events: initial;
+    z-index: 110;
+
+    #WaveformContainer #Playhead {
+	    // animation: Scrub 3.5s linear;
+	    // animation-fill-mode: forwards;
+	    transition: left 50ms;
+    }
+}

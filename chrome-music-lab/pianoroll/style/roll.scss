@@ -1,0 +1,61 @@
+@import "common.scss";
+
+$ScrollBarHeight : 25px;
+
+#RollContainer {
+	position: absolute;
+	width: 100%;
+	height: calc(100% - #{$SynthControlsHeight});
+	left: 0px;
+	top: 0px;
+	overflow: hidden;
+
+	#ScrollContainer {
+
+		height: calc(100% + #{$ScrollBarHeight});
+		width: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		overflow-y: hidden;
+		overflow-x: scroll;
+
+		#PianoRoll{
+			display: inline;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			// margin-left: 50%;
+			z-index: 1;
+			background-color: transparent;
+			// backface-visibility: hidden;
+			// perspective: 1000;
+		}
+	}
+
+
+	#TriggerLine {
+		$width: 3px;
+		position: absolute;
+		left: calc(50% - #{$width / 2});
+		height: 100%;
+		background-color: black;
+		width: $width;
+		z-index: 2;
+		opacity: 0.1;
+		pointer-events: none;
+	}
+
+	#ScoreCanvas {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: 0;
+		// background-color: blue;
+		height: calc(100% - #{$ScrollBarHeight});
+	}
+}

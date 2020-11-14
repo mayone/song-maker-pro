@@ -1,0 +1,26 @@
+.Overlay {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  bottom: 0;
+  color: #333;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  outline: 2px dashed black;
+  outline-offset: -40px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  z-index: 2147483647;
+
+  &.Active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+

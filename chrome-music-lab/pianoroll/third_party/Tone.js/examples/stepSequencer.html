@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>SCORE</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="icon" type="image/png" sizes="174x174" href="./style/favicon.png">
+
+	<script type="text/javascript" src="../build/Tone.js"></script>
+	<script type="text/javascript" src="./scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="./scripts/draggabilly.js"></script>
+	<script type="text/javascript" src="./scripts/Logo.js"></script>
+	<script type="text/javascript" src="./scripts/Interface.js"></script>
+	<script type="text/javascript" src="./scripts/nexusUI.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="./style/examples.css">
+
+	<script type="text/javascript">
+		// jshint ignore: start
+	</script>
+
+</head>
+<body>	
+	<style type="text/css">
+		canvas {
+			margin-top: 3px;
+		}
+	</style>
+	<div id="Content">
+		<div id="Title">Tone.Transport</div>
+		<div id="Explanation">
+			<a href="http://tonejs.org/docs/#Transport">Tone.Transport</a> 
+			is the application-wide timekeeper. It's clock source enables sample-accurate scheduling as well as 
+			tempo-curves and automation. This example uses Tone.Sequence to invoke a callback every 16th note.
+		</div>
+		<canvas nx="matrix"></canvas>
+	</div>	
+	<script type="text/javascript">
+		//setup a polyphonic sampler
+		var keys = new Tone.PolySynth(4, Tone.Sampler, {
+			"A" : "./audio/casio/A1.mp3",
+			"C#" : "./audio/casio/Cs2.mp3",
+			"E" : "./audio/casio/E2.mp3",
+			"F#" : "./audio/casio/Fs2.mp3",
+		}, {
+			"volume" : -10,
+		}).toMaster();
+
+		// var keys = new Tone.PolySynth(4, Tone.SimpleSynth).toMaster();
+
+		//the notes
+		var noteNames = ["F#", "E", "C#", "A"];
+		// var noteNames = ["F#3", "E3", "C#3", "A3"];
+
+		var loop = new Tone.Sequence(function(time, col){
+			var column = matrix1.matrix[col];
+			for (var i = 0; i < 4; i++){
+				if (column[i] === 1){
+					keys.triggerAttackRelease(noteNames[i], "32n", time);
+				}
+			}
+		}, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
+
+		Tone.Transport.start();
+
+	</script>
+	<script type="text/javascript">
+		nx.onload = function(){
+			nx.colorize("#f5871f");
+			
+			matrix1.col = 16;
+			matrix1.init();
+			matrix1.resize($("#Content").width(), 250);
+			matrix1.draw();
+		}
+
+		$(function(){
+
+			new Interface.Slider({
+				name : "BPM",
+				min : 80,
+				max : 200,
+				value : Tone.Transport.bpm.value,
+				drag : function(val){
+					Tone.Transport.bpm.value = val;
+				}
+			});
+
+			new Interface.Button({
+				text : "Start",
+				activeText : "Stop",
+				type : "toggle",
+				key : 32, //spacebar
+				start : function(){
+					loop.start();
+				},
+				end : function(){
+					loop.stop();
+				},
+			});
+
+			Interface.Loader();
+
+			$(window).on("resize", function(){
+				matrix1.resize($("#Content").width(), 250);
+				matrix1.draw();	
+			});
+		});
+	</script>
+</body>
+</html>

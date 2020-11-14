@@ -1,0 +1,114 @@
+$NoteHeight : 12px;
+$NoteWidth : 100px;
+
+.Note {
+	position: absolute;
+	background-color: black;
+	width: $NoteWidth;
+	height: $NoteHeight;
+	display: none;
+	opacity: 0;
+	// box-sizing: border-box;
+	// border-style: solid;
+	// border-color: white;
+	// border-size: 0px 2px 2px 0px;
+	// $transitionTime: 0.1s;
+	// transition: background-color $transitionTime;
+}
+
+/**
+ *  Trigger the attack and release
+ */
+.Note.Trigger {
+	transition: none;
+	background-color: rgba(0, 0, 0, 0.75)!important;
+}
+
+.Note.OnScreen {
+	display: block;
+}
+
+/**
+ *  all the note colors
+ */
+
+$C: #4e61d8;
+$Cs: #8064c6;
+$D: #a542b1;
+$Ds: #ed3883;
+$E: #f75839;
+$F: #f7943d;
+$Fs: #f6be37;
+$G: #d1c12e;
+$Gs: #95c631;
+$A: #4bb250;
+$As: #45b5a1;
+$B: #4598b6;
+
+.Note.C {
+	background-color: $C;
+}
+
+.Note.Cs {
+	background-color: $Cs;
+}
+
+.Note.D {
+	background-color: $D;
+}
+
+.Note.Ds {
+	background-color: $Ds;
+}
+
+.Note.Db {
+	background-color: $Cs;
+}
+
+.Note.E {
+	background-color: $E;
+}
+
+.Note.Eb {
+	background-color: $Ds;
+}
+
+.Note.F {
+	background-color: $F;
+}
+
+.Note.Fs {
+	background-color: $Fs;
+}
+
+.Note.G {
+	background-color: $G;
+}
+
+.Note.Gs {
+	background-color: $Gs;
+}
+
+.Note.Gb {
+	background-color: $Fs;
+}
+
+.Note.A {
+	background-color: $A;
+}
+
+.Note.As {
+	background-color: $As;
+}
+
+.Note.Ab {
+	background-color: $Gs;
+}
+
+.Note.B {
+	background-color: $B;
+}
+
+.Note.Bb {
+	background-color: $As;
+}
