@@ -1,0 +1,164 @@
+@import "common.scss";
+
+#Metronome {
+	background-color: white;
+	z-index: 100;
+	position: absolute;
+	width: 100%;
+	height: calc(100% - #{$PartHeight});
+	// top: 100%;
+	top: 0px;
+	transform: translate(0px, 200%);
+	left: 0px;
+	opacity: 0;
+	pointer-events:none;
+	transition: transform 0.2s ease-out;
+
+	@include SmallHeight {
+		height: calc(100% - #{$SmallPartHeight});
+	}
+
+	$CheckboxSize : 120px;
+
+	#Checkbox {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: $CheckboxSize;
+		height: $CheckboxSize;
+		margin-left: -$CheckboxSize / 2;
+		margin-top: -$CheckboxSize / 2;
+		background-image: url(../images/icon_check_grey.png);
+		background-size: 100% 100%;
+	}
+
+	#Checkbox:active {
+		background-image: url(../images/icon_check_white.png);
+		background-color: rgb(75, 178, 80);
+	}
+
+	$WheelSize : 300px;
+	$HandlSize : $WheelSize * 0.2;
+
+	$SmallWheelSize : 250px;
+	$SmallHandlSize : $SmallWheelSize * 0.2;
+
+	#MetroWheel {
+		height: auto;
+		width: $WheelSize;
+		margin-left: -$WheelSize / 2;
+		margin-top: -$WheelSize / 2;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+
+		input {
+			bottom: 30px;
+			font-size: 18px!important;
+			height: auto !important;
+		}
+
+		@include SmallWidth {
+			width: $SmallWheelSize;
+			margin-left: -$SmallWheelSize / 2;
+			margin-top: -$SmallWheelSize / 2;
+
+			#WheelHandle {
+				width: $SmallHandlSize;
+				margin-left: -$SmallHandlSize/2;
+				height: $SmallHandlSize;
+				margin-top: -$SmallHandlSize/2;
+			}
+		}
+
+
+		#WheelHandle {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: $HandlSize;
+			margin-left: -$HandlSize/2;
+			height: $HandlSize;
+			margin-top: -$HandlSize/2;
+			background-color: white;
+			pointer-events: none;
+			z-index: 100;
+			cursor: pointer;
+		}
+
+		$BlinkSize : 40%;
+
+		#Blinky {
+			position: absolute;
+			width: $BlinkSize;
+			height: $BlinkSize;
+			pointer-events: none;
+			background-color: $orange;
+			border-radius: 50%;
+			left: (100% - $BlinkSize) / 2;
+			top: (100% - $BlinkSize) / 2;
+			opacity: 0;
+		}
+
+		$IconSize : 45px;
+		$SmallIconSize : 30px;
+
+		.Icon {
+			position: absolute;
+			top: 80%;
+			height: $IconSize;
+			width: $IconSize;
+			background-size: auto 100%;
+			background-position: center center;
+			background-repeat: no-repeat;
+			pointer-events: none;
+			font-size: $IconSize * 2;
+			line-height: $IconSize;
+			color: $darkGrey;
+			text-align: right;
+
+			@include SmallHeight {
+				height: $SmallIconSize;
+				width: $SmallIconSize;
+				font-size: $SmallIconSize * 2;
+				line-height: $SmallIconSize;
+			}
+
+			@include SmallWidth {
+				height: $SmallIconSize;
+				width: $SmallIconSize;
+				font-size: $SmallIconSize * 2;
+				line-height: $SmallIconSize;
+			}
+		}
+
+		$IconOffset : -40px;
+
+		#Rabbit {
+			right: 10px;
+		}
+
+		#Turtle {
+			left: -40px;
+
+			@include SmallHeight{
+				left: -20px;
+			} 
+			@include SmallWidth {
+				left: -20px;
+			}
+		}
+	}
+
+}
+
+#Metronome.Visible {
+	opacity: 1;
+	pointer-events:initial;
+	// display: initial;
+	transform: translate(0px, $PartHeight + 2px);
+
+	@include SmallHeight {
+		transform: translate(0px, $SmallPartHeight + 2px);		
+	}
+}

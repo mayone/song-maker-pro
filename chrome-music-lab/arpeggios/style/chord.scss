@@ -1,0 +1,119 @@
+@import "common.scss";
+
+$WheelSize : 100%;
+$Margin : 10px;
+
+#Chord {
+	position : fixed;
+	left: 0px;
+	right: 0px;
+	top: $TopbarHeight + $PartHeight;
+	bottom: 0px;
+	z-index: 0;
+	height: calc(100% - #{$TopbarHeight + $PartHeight});
+	width: 100%;
+	min-width: 300px;
+	min-height: 300px;
+
+	@include SmallHeight {
+		top: $TopbarHeight + $SmallPartHeight;
+		height: calc(100% - #{$TopbarHeight + $SmallPartHeight});
+	}
+
+	.Slice {
+		cursor: pointer;
+	}
+
+	#Wheel {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		#Canvas, #Letters, #Interaction{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+		}
+
+		#Interaction {
+			border-radius: 50%;
+			cursor: pointer;
+		}
+
+		#Letters .Letter {
+			-webkit-touch-callout: none;
+			user-select: none;
+			pointer-events: none;
+			color: white;
+			font-family: "Quicksand";
+			font-weight: 700;
+			position: absolute;
+			text-align: center;
+			transform: translate(-50%, -50%);
+
+			span {
+				font-size: 0.5em;
+				vertical-align: text-top;
+
+			}
+
+
+		}
+
+		#Letters .Major{
+			font-size: 20px;
+			text-transform: uppercase;
+
+			@include SmallWidth {
+				font-size: 18px;
+			}
+
+			@include LargeWidth {
+				font-size: 2.5em;
+			}
+		}
+
+		#Letters .Minor {
+			font-size: 18px;
+			text-transform: lowercase;
+
+			@include SmallWidth {
+				font-size: 16px;
+			}
+
+			@include LargeWidth {
+				font-size: 2em;
+			}
+		}
+	}
+
+	$PlayButtonSize : 80px;
+	$SmallPlayButtonSize : 64px;
+
+	//the play button
+	#PlayButton {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: $PlayButtonSize;
+		height: $PlayButtonSize;
+		margin-left: -$PlayButtonSize/2;
+		margin-top: -$PlayButtonSize/2;
+		font-size: $PlayButtonSize;
+		line-height: $PlayButtonSize;
+		background-color: white;
+		color: $darkGrey;
+
+		@include SmallWidth {
+			width: $SmallPlayButtonSize;
+			height: $SmallPlayButtonSize;
+			margin-left: -$SmallPlayButtonSize/2;
+			margin-top: -$SmallPlayButtonSize/2;
+			font-size: $SmallPlayButtonSize;
+			line-height: $SmallPlayButtonSize;
+		}
+	}
+
+}

@@ -1,0 +1,62 @@
+@import "common.scss";
+
+#Topbar {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: $TopbarHeight;
+	width: 100%;
+	background-color: white;
+	z-index: 4;
+	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.1);
+
+
+	#Back {
+		$BackSize : 40px;
+		position: absolute;
+		top: 50%;
+		height: $BackSize;
+		width: $BackSize;
+		margin-top: -$BackSize/2;
+		left: 20px;
+		background-image: url(../images/back_grey.png);
+		background-size: 100% 100%;
+	}
+
+	$InfoSize: 25px;
+
+	#Info {
+		right: 20px;
+		position: absolute;
+		top: 50%;
+		height: $InfoSize;
+		width: $InfoSize;
+		margin-top: -$InfoSize/2;
+		background-color: $orange;
+		border-radius: 50%;
+	}
+
+	#Info:before {
+		content: "?";
+		text-align: center;
+		width: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		line-height: $InfoSize;
+		font-size: $InfoSize * 0.7;
+		font-family: sans-serif;
+		color: white;
+	}
+
+	#Title {
+		position: absolute;
+		width: 100%;
+		top: 0px;
+		left: 0px;
+		text-align: center;
+		line-height: $TopbarHeight;
+		color: #444;
+		font-size: 24px;
+	}
+}

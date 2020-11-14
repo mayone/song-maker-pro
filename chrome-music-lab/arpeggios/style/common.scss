@@ -1,0 +1,41 @@
+$orange: #ffb729;
+$green: #ffb729;
+$lightGrey : #EDEDED;
+$grey : rgb(204, 204, 204);
+$lightGrey : rgb(242, 242, 242);
+$darkGrey : rgb(100, 100, 100);
+$TopbarHeight : 0px;
+$PartHeight : 200px;
+$SmallPartHeight : 160px;
+
+$Margin: 12px;
+
+$ButtonSize : 60px;
+$ButtonMargin: 20px;
+
+$SmallButtonSize : 45px;
+$SmallButtonMargin : 10px;
+
+$SmallScreen : 360px;
+$SmallScreenHeight : 500px;
+
+$LargeScreen : 1440px;
+
+
+@mixin SmallHeight {
+	@media (max-height: #{$SmallScreenHeight}) {
+		@content;
+	}
+}
+
+@mixin SmallWidth {
+	@media (max-width: #{$SmallScreen}) {
+		@content;
+	}
+}
+
+@mixin LargeWidth {
+	@media (min-width: #{$LargeScreen}) {
+		@content;
+	}
+}

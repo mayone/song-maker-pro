@@ -1,0 +1,98 @@
+@import "common.scss";
+
+$SpinnerSize : 100px;
+
+
+#Loading {
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 1000000;
+	pointer-events: none;
+	line-height: 300px;
+	color: white;
+	text-align: center;
+	transition: opacity 0.2s;
+
+
+}
+
+#Loading.Visible {
+	// background-image: url(../images/icon_piano_grey.png);
+	// background-size: $SpinnerSize - 20px $SpinnerSize - 20px;
+	background-color: white;
+	background-position: center center;
+	background-repeat: no-repeat;
+	opacity: 1;
+	pointer-events: initial;
+	transition: opacity 0.0s;
+
+	.SpinContainer {
+		position: absolute;
+		top: 50%;
+		left: 0px;
+		height: $SpinnerSize;
+		margin-top: -$SpinnerSize / 2;
+		width: 100%;
+
+		.Icon {
+			position: absolute;
+			width: 100%;
+			top: -100%;
+			left: 0px;
+			height: 0px;
+			font-size: $SpinnerSize;
+			color: $darkGrey;
+			text-align: center;
+		}
+
+		.Spinner {
+			position: absolute;
+			top: 0px;
+			left: 50%;
+			margin-left: -$SpinnerSize / 2;
+			animation: rotation 1.4s linear infinite;
+			stroke: $lightGrey;
+			width: $SpinnerSize;
+			height: $SpinnerSize;
+		}
+		
+	}
+
+
+
+	@keyframes rotation {
+		0% {
+			transform: rotate(0deg);
+	  	}
+	  	100% {
+			transform: rotate(270deg);
+	  	}
+	}
+
+	.Circle {
+		stroke-dasharray: 187;
+		stroke-dashoffset: 0;
+		transform-origin: center;
+		animation: turn 1.4s ease-in-out infinite;
+	}
+
+	@keyframes turn {
+		0% {
+			stroke-dashoffset: 187;
+		}
+
+		50% {
+			stroke-dashoffset: 46.75;
+			transform: rotate(135deg);
+		}
+
+		100% {
+			stroke-dashoffset: 187;
+			transform: rotate(450deg);
+		}
+	}
+}
