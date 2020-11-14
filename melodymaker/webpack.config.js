@@ -54,10 +54,6 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.json$/,
-				use: "json"
-			},
-			{
 				test: /\.(png|gif)$/,
 				use: "url-loader",
 			},
