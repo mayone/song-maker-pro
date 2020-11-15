@@ -1,0 +1,88 @@
+{
+  "name": "gl-shader",
+  "version": "4.0.5",
+  "description": "WebGL shader wrapper",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "weakmap-shim": "^1.1.0"
+  },
+  "devDependencies": {
+    "gl-now": "^1.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "beefy --open example/example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stackgl/gl-shader.git"
+  },
+  "keywords": [
+    "webgl",
+    "shader",
+    "fragment",
+    "vertex",
+    "uniform",
+    "attribute",
+    "wrap",
+    "3d",
+    "gl"
+  ],
+  "author": {
+    "name": "Mikola Lysenko"
+  },
+  "license": "MIT",
+  "gitHead": "e28ce1d36277aeb6d109d886e847c7cdc1903cd9",
+  "bugs": {
+    "url": "https://github.com/stackgl/gl-shader/issues"
+  },
+  "homepage": "https://github.com/stackgl/gl-shader",
+  "_id": "gl-shader@4.0.5",
+  "_shasum": "72c18d3ecd01c7608b952eeac709f2244867c881",
+  "_from": "gl-shader@>=4.0.5 <5.0.0",
+  "_npmVersion": "2.7.4",
+  "_nodeVersion": "0.12.2",
+  "_npmUser": {
+    "name": "mikolalysenko",
+    "email": "mikolalysenko@gmail.com"
+  },
+  "dist": {
+    "shasum": "72c18d3ecd01c7608b952eeac709f2244867c881",
+    "tarball": "http://registry.npmjs.org/gl-shader/-/gl-shader-4.0.5.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "mikolalysenko",
+      "email": "mikolalysenko@gmail.com"
+    },
+    {
+      "name": "hughsk",
+      "email": "hughskennedy@gmail.com"
+    },
+    {
+      "name": "chrisdickinson",
+      "email": "chris@neversaw.us"
+    },
+    {
+      "name": "mattdesl",
+      "email": "dave.des@gmail.com"
+    },
+    {
+      "name": "substack",
+      "email": "mail@substack.net"
+    },
+    {
+      "name": "thibauts",
+      "email": "thibaut.seguy@gmail.com"
+    },
+    {
+      "name": "yoshuawuyts",
+      "email": "i@yoshuawuyts.com"
+    }
+  ],
+  "_resolved": "https://registry.npmjs.org/gl-shader/-/gl-shader-4.0.5.tgz",
+  "readme": "ERROR: No README data found!"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "musicbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "a-big-triangle": "^1.0.2",
+    "babel": "^5.8.23",
+    "gl-buffer": "^2.1.2",
+    "gl-fbo": "^2.0.5",
+    "gl-shader": "^4.0.5",
+    "glsl-aastep": "^1.0.1",
+    "lodash": "^4.17.20",
+    "material-design-lite": "^1.0.5",
+    "tone": "^14.7.58",
+    "virtual-element": "^1.2.0",
+    "webgl-context": "^2.2.0"
+  },
+  "folders": {
+    "dest": "dist",
+    "src": "src"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/register": "^7.12.1",
+    "babel": "^5.8.23",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.26.13",
+    "browserify": "^17.0.0",
+    "deku": "^0.5.6",
+    "del": "^2.0.2",
+    "exorcist": "^0.4.0",
+    "glslify": "^7.1.1",
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.6",
+    "lodash.assign": "^3.2.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Lundin",
+  "license": "ISC"
+}

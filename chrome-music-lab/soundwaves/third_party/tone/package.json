@@ -1,0 +1,89 @@
+{
+  "_args": [
+    [
+      "tone",
+      "/Users/mark/Projects/Google/musicbox_2"
+    ]
+  ],
+  "_from": "tone@*",
+  "_id": "tone@0.6.1",
+  "_inCache": true,
+  "_location": "/tone",
+  "_nodeVersion": "4.2.1",
+  "_npmUser": {
+    "email": "yotammann@gmail.com",
+    "name": "yotam"
+  },
+  "_npmVersion": "2.14.7",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "tone",
+    "raw": "tone",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/tone/-/tone-0.6.1.tgz",
+  "_shasum": "557926d7989c5420017533ead07f4af4e569ba24",
+  "_shrinkwrap": null,
+  "_spec": "tone",
+  "_where": "/Users/mark/Projects/Google/musicbox_2",
+  "author": {
+    "email": "yotammann@gmail.com",
+    "name": "Yotam Mann",
+    "url": "http://yotammann.info/"
+  },
+  "bugs": {
+    "url": "https://github.com/Tonejs/Tone.js/issues"
+  },
+  "dependencies": {},
+  "description": "A Web Audio framework for making interactive music in the browser.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "557926d7989c5420017533ead07f4af4e569ba24",
+    "tarball": "http://registry.npmjs.org/tone/-/tone-0.6.1.tgz"
+  },
+  "files": [
+    "./README.md",
+    "Tone",
+    "build/Tone.js",
+    "build/Tone.min.js"
+  ],
+  "gitHead": "e371c69a79a397d82def6b9e21f1e1f0edbc70eb",
+  "homepage": "https://github.com/Tonejs/Tone.js#readme",
+  "installable": true,
+  "keywords": [
+    "DSP",
+    "Effect",
+    "Instrument",
+    "Interactive Music",
+    "Playback",
+    "Signal Processing",
+    "Synthesis",
+    "Web Audio",
+    "Web Audio API"
+  ],
+  "license": "MIT",
+  "main": "build/Tone.js",
+  "maintainers": [
+    {
+      "name": "yotam",
+      "email": "yotammann@gmail.com"
+    }
+  ],
+  "name": "tone",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tonejs/Tone.js.git"
+  },
+  "scripts": {
+    "test": "cd gulp && gulp test"
+  },
+  "version": "0.6.1"
+}
