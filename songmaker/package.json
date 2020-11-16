@@ -11,10 +11,16 @@
     "base64-js": "^1.5.1",
     "buffer": "^6.0.2",
     "css-loader": "^5.0.1",
+    "midi-file": "^1.1.2",
+    "pitchfinder": "^2.3.1",
     "sass-loader": "^10.1.0",
+    "simplex-noise": "^2.4.0",
     "style-loader": "^2.0.0",
+    "tinycolor2": "^1.4.2",
     "tone": "^14.7.58",
-    "webpack": "^5.4.0"
+    "webmidi": "^2.5.1",
+    "webpack": "^5.4.0",
+    "webrtc-adapter": "^7.7.0"
   },
   "description": "My webpack project",
   "scripts": {

@@ -1,8 +1,8 @@
-import {SoundTrack} from './Track'
-import {RenderOffline} from './RenderOffline'
+import { SoundTrack } from './Track'
+// import {RenderOffline} from './RenderOffline'
 import * as Tone from 'tone'
-import {Offline, Synth, Transport, Player, Time, Oscillator, Gain} from 'tone'
-import {EventEmitter} from 'events'
+import { Offline, Synth, Transport, Player, Time, Oscillator, Gain } from 'tone'
+import { EventEmitter } from 'events'
 import * as toWav from 'audiobuffer-to-wav'
 import { TONAL_URLS } from '../data/SoundPalettes'
 import * as cloneDeep from 'clone-deep'
@@ -12,8 +12,8 @@ function makeWavFromBuffer(buffer, id) {
 	document.body.appendChild(anchor)
 	anchor.style = 'display: none'
 
-	const wav  = toWav.default(buffer._buffer)
-	const blob = new window.Blob([ new DataView(wav) ], {
+	const wav = toWav.default(buffer._buffer)
+	const blob = new window.Blob([new DataView(wav)], {
 		type: 'audio/wav'
 	})
 
@@ -24,8 +24,8 @@ function makeWavFromBuffer(buffer, id) {
 	window.URL.revokeObjectURL(url)
 }
 
-export class Sound extends EventEmitter{
-	constructor(options, midiData){
+export class Sound extends EventEmitter {
+	constructor(options, midiData) {
 		super()
 
 		this.midiData = midiData
@@ -41,9 +41,9 @@ export class Sound extends EventEmitter{
 
 		this.options.on('change', () => {
 			Transport.bpm.value = this.options.tempo
-			Transport.loopEnd  = Time('4n') * this.options.totalBeats
+			Transport.loopEnd = Time('4n') * this.options.totalBeats
 		})
-		Transport.loopEnd  = Time('4n') * this.options.totalBeats
+		Transport.loopEnd = Time('4n') * this.options.totalBeats
 
 		this.bumpSound = new Player('audio/sfx/bump.mp3').toDestination()
 		this.bumpSound.autostart = false
@@ -52,7 +52,7 @@ export class Sound extends EventEmitter{
 		this.deleteSound = new Player('audio/sfx/delete.mp3').toDestination()
 		this.deleteSound.autostart = false
 	}
-    
+
 
 	downloadMidi() {
 		const midi = this.midiData.encode(this.options)
@@ -64,48 +64,48 @@ export class Sound extends EventEmitter{
 		a.download = 'song-maker.mid'
 		a.click()
 		window.URL.revokeObjectURL(url)
-    
+
 	}
 
 	//just an alias for the midi data tempo
-	set tempo(t){
+	set tempo(t) {
 		this.options.tempo = t
 		Transport.bpm.value = t
 	}
-	get tempo(){
+	get tempo() {
 		return this.options.tempo
 	}
 
-	set mute(m){
+	set mute(m) {
 		this.instrumentTrack.mute = m
 	}
-	get mute(){
+	get mute() {
 		return this.instrumentTrack.mute
 	}
 
-	get position(){
+	get position() {
 		//return the normalized position of the transport
-		if (Transport.state === 'started'){
+		if (Transport.state === 'started') {
 			return Time(Transport.ticks, 'i') / Transport.loopEnd
 		} else {
 			return -1
 		}
 	}
 
-	start(time='+0.1', offset){
+	start(time = '+0.1', offset) {
 		Transport.start(time, offset)
 	}
 
-	stop(time=Tone.now()){
+	stop(time = Tone.now()) {
 		Transport.stop(time)
 	}
 
-	clear(){
+	clear() {
 		this.instrumentTrack.clear()
 		this.percussionTrack.clear()
 	}
 
-	playNote(...args){
+	playNote(...args) {
 		this.instrumentTrack.playNote(...args)
 	}
 
@@ -120,7 +120,7 @@ export class Sound extends EventEmitter{
 		this.percussionTrack.syncWithMidiTrack()
 	}
 
-	introBeep(){
+	introBeep() {
 		const quarterDur = Time('4n')
 		const now = Tone.now() + 0.1
 		const gainNode = new Gain().toMaster()
@@ -151,16 +151,16 @@ export class Sound extends EventEmitter{
 	}
 
 	generateWave(id) {
-		let songLength =  60 * this.options.totalBeats / this.options.tempo
+		let songLength = 60 * this.options.totalBeats / this.options.tempo
 		const tempo = this.options.tempo
 		this.emit('export-start')
 
-		Tone.Offline(async ({transport}) => {
+		Tone.Offline(async ({ transport }) => {
 			// Set Transport BPM
 			transport.bpm.value = tempo
 			//play one of the samples when they all load
-			let instrumentTrack = new SoundTrack(this.options, this.midiData.instrument, false, () => {}, true, true)
-			let percussionTrack = new SoundTrack(this.options, this.midiData.percussion, true, () => {}, true, true)
+			let instrumentTrack = new SoundTrack(this.options, this.midiData.instrument, false, () => { }, true, true)
+			let percussionTrack = new SoundTrack(this.options, this.midiData.percussion, true, () => { }, true, true)
 			syncAndPlay()
 			function syncAndPlay() {
 				instrumentTrack.syncWithMidiTrack()
@@ -174,6 +174,6 @@ export class Sound extends EventEmitter{
 			this.percussionTrack.instrument.reset()
 			this.instrumentTrack.instrument.reset()
 		})
-		
+
 	}
 }

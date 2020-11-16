@@ -35,15 +35,15 @@ module.exports = {
     entry: './src/Main',
 
     output: {
-        path: path.resolve(__dirname, 'build')
+        path: path.resolve(__dirname, 'dist')
     },
 
     resolve: {
         alias: {
-            style: path.resolve(__dirname, 'images'),
+            images: path.resolve(__dirname, 'images'),
             style: path.resolve(__dirname, 'style')
         },
-        modules: ['style', 'data', 'midi', 'history', 'modal', 'sound', 'grid', 'input', 'keyboard', 'mic', 'functions', 'top', 'bottom', 'cloud', 'node_modules'],
+        modules: ['src', 'style', 'data', 'midi', 'history', 'modal', 'sound', 'grid', 'input', 'keyboard', 'mic', 'functions', 'top', 'bottom', 'cloud', 'node_modules'],
     },
 
     plugins: [new webpack.ProgressPlugin()],
