@@ -43,7 +43,7 @@ module.exports = {
             images: path.resolve(__dirname, 'images'),
             style: path.resolve(__dirname, 'style')
         },
-        modules: ['src', 'style', 'data', 'midi', 'history', 'modal', 'sound', 'grid', 'input', 'keyboard', 'mic', 'functions', 'top', 'bottom', 'cloud', 'node_modules'],
+        modules: ['src', 'images', 'style', 'data', 'midi', 'history', 'modal', 'sound', 'grid', 'input', 'keyboard', 'mic', 'functions', 'top', 'bottom', 'cloud', 'node_modules'],
     },
 
     plugins: [new webpack.ProgressPlugin()],
@@ -71,6 +71,16 @@ module.exports = {
                     sourceMap: true
                 }
             }]
+        }, {
+            test: /\.(svg|png)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name]-[hash].[ext]'
+                    }
+                }
+            ]
         }]
     },
 

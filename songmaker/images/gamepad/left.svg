@@ -1,0 +1,19 @@
+
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+	<desc>Created with Sketch.</desc>
+	<defs></defs>
+	<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		<g id="Back">
+			<rect id="Rectangle-2-Copy" fill="#33B3F2" fill-rule="nonzero" x="0" y="0" width="32" height="32" rx="16"></rect>
+			<g id="Icons-/-Back-Arrow-White" transform="translate(2.000000, 2.000000)">
+				<g id="ic_keyboard_backspace">
+					<g id="Icon-24px">
+						<polygon id="Shape" points="0 0 28 0 28 28 0 28"></polygon>
+						<path d="M20.5833333,12.8333333 L10.885,12.8333333 L14.3565309,9.35210541 C14.7461256,8.96142245 14.7456846,8.32901794 14.3555454,7.93887873 L14.1237734,7.70710678 C13.7332492,7.31658249 13.1000842,7.31658249 12.7095599,7.70710678 L7.12377345,13.2928932 C6.73324916,13.6834175 6.73324916,14.3165825 7.12377345,14.7071068 L12.7095599,20.2928932 C13.1000842,20.6834175 13.7332492,20.6834175 14.1237734,20.2928932 L14.3555454,20.0611213 C14.7456846,19.6709821 14.7461256,19.0385776 14.3565309,18.6478946 L10.885,15.1666667 L20.5833333,15.1666667 C21.1356181,15.1666667 21.5833333,14.7189514 21.5833333,14.1666667 L21.5833333,13.8333333 C21.5833333,13.2810486 21.1356181,12.8333333 20.5833333,12.8333333 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

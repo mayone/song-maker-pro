@@ -11,6 +11,7 @@
     "base64-js": "^1.5.1",
     "buffer": "^6.0.2",
     "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
     "midi-file": "^1.1.2",
     "pitchfinder": "^2.3.1",
     "sass-loader": "^10.1.0",
