@@ -15,5 +15,10 @@ npm install -g webpack-cli
 
 ---
 
+## Run
+- Open `index.html` in browser
+
+---
+
 ## Exception Handling
 - [Installation notes for macOS Catalina (v10.15)](https://github.com/nodejs/node-gyp/blob/master/macOS_Catalina.md)

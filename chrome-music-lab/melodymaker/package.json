@@ -2,9 +2,10 @@
   "name": "melody",
   "version": "1.0.0",
   "description": "",
-  "main": "build/Main.js",
+  "main": "dist/Main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "webpack"
   },
   "author": "Yotam Mann",
   "dependencies": {
