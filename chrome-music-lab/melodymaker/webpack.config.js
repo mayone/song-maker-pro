@@ -14,28 +14,24 @@
  * limitations under the License.
  */
 
-var webpack = require("webpack");
-var path = require("path");
+const path = require('path');
+const webpack = require('webpack');
 
 var PROD = JSON.parse(process.env.PROD_ENV || '0');
 
 module.exports = {
-	"context": __dirname,
 	entry: {
-		"Main": "./app/Main",
+		"Main": "./src/Main",
 	},
 	output: {
-		filename: "./build/[name].js",
-		chunkFilename: "./build/[id].js",
-		sourceMapFilename: "[file].map",
+		path: path.resolve(__dirname, 'dist'),
+		filename: '[name].js'
 	},
 	resolve: {
-		// root: __dirname,
 		alias: {
 			style: path.resolve(__dirname, 'style/')
 		},
-		modules: ["style", "app", "third_party/Tone.js/", "third_party", "node_modules"],
-		// extensions: ['.js', '.jsx'],
+		modules: ["style", "src", "third_party/Tone.js/", "third_party", "node_modules"],
 	},
 	plugins: PROD ? [
 		new webpack.optimize.UglifyJsPlugin({ minimize: true })
