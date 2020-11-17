@@ -35,12 +35,13 @@ module.exports = {
     entry: './src/Main',
 
     output: {
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].js'
     },
 
     resolve: {
         alias: {
-            images: path.resolve(__dirname, 'images'),
+            // images: path.resolve(__dirname, 'images'),
             style: path.resolve(__dirname, 'style')
         },
         modules: ['src', 'images', 'style', 'data', 'midi', 'history', 'modal', 'sound', 'grid', 'input', 'keyboard', 'mic', 'functions', 'top', 'bottom', 'cloud', 'node_modules'],
@@ -73,14 +74,20 @@ module.exports = {
             }]
         }, {
             test: /\.(svg|png)$/,
-            use: [
-                {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name]-[hash].[ext]'
-                    }
-                }
-            ]
+            use: "url-loader",
+        }, {
+            test: /\.html$/i,
+            use: 'html-loader',
+        }, {
+            // test: /\.(svg|png)$/,
+            // use: [
+            //     {
+            //         loader: 'file-loader',
+            //         options: {
+            //             name: '[name]-[hash].[ext]'
+            //         }
+            //     }
+            // ]
         }]
     },
 
