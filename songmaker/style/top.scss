@@ -64,7 +64,7 @@
 	transform: translate(0, -50%);
 	position: absolute;
 	display: block;
-	content: '\\a';
+	content: '\a';
 	width: 23px;
 	height: 24px;
 	background-size: contain;
@@ -166,7 +166,7 @@
   }
   
   #header-back:before {
-	content: '\\a';
+	content: '\a';
 	position: absolute;
 	background-position: center;
 	background-repeat: no-repeat;

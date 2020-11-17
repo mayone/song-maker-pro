@@ -57,7 +57,7 @@
   
   #gamepad .button:before {
 	background-image: url(/images/gamepad/left.svg);
-	content: '\\a';
+	content: '\a';
 	position: absolute;
 	height: 32px;
 	width: 32px;
@@ -70,7 +70,7 @@
   }
   
   #gamepad::before {
-	content: '\\a';
+	content: '\a';
   }
   
   #gamepad #gamepad-toggle-button {
