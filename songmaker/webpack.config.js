@@ -58,14 +58,17 @@ module.exports = {
             test: /.(scss|css)$/,
 
             use: [{
+                // creates style nodes from JS strings
                 loader: "style-loader"
             }, {
+                // translates CSS into CommonJS
                 loader: "css-loader",
 
                 options: {
                     sourceMap: true
                 }
             }, {
+                // compiles Sass to CSS
                 loader: "sass-loader",
 
                 options: {
@@ -74,17 +77,34 @@ module.exports = {
             }]
         }, {
             test: /\.(svg|png)$/,
-            use: "url-loader",
+            use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        // esModule: false
+                        // name: 'images/[name].[ext]'
+                    }
+                }
+            ],
         }, {
             test: /\.html$/,
-            use: 'html-loader',
+            use: [
+                {
+                    loader: 'html-loader',
+                    options: {
+                        // attributes: {
+                        //     root: '.'
+                        // }
+                    }
+                }
+            ],
         }, {
             // test: /\.(svg|png)$/,
             // use: [
             //     {
             //         loader: 'file-loader',
             //         options: {
-            //             name: '[name]-[hash].[ext]'
+            //             name: 'images/[name].[ext]'
             //         }
             //     }
             // ]

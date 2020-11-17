@@ -32,3 +32,17 @@ $orange : #f4a806;
 $icon-label-gray : #666;
 $gray-text : #666;
 $about-gray-text : #9e9e9e;
+
+:export {
+	blue: $blue;
+	red: $red;
+	lightGrayFill: $lightGrayFill;
+	darkGrayFill: $darkGrayFill;
+	veryLightGrayFill: $veryLightGrayFill;
+	black: $black;
+	// $white : #fff;
+	// $orange : #f4a806;
+	// $icon-label-gray : #666;
+	// $gray-text : #666;
+	// $about-gray-text : #9e9e9e;
+}
