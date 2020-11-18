@@ -44,7 +44,7 @@ module.exports = {
             images: path.resolve(__dirname, 'images'),
             style: path.resolve(__dirname, 'style')
         },
-        modules: ['src', 'images', 'style', 'data', 'midi', 'history', 'modal', 'sound', 'grid', 'input', 'keyboard', 'mic', 'functions', 'top', 'bottom', 'cloud', 'node_modules'],
+        modules: ['src', 'style', 'data', 'midi', 'history', 'modal', 'sound', 'grid', 'input', 'keyboard', 'mic', 'functions', 'top', 'bottom', 'cloud', 'node_modules'],
     },
 
     plugins: [
@@ -69,7 +69,10 @@ module.exports = {
                     loader: "css-loader",
 
                     options: {
-                        // modules: true,
+                        modules: {
+                            // Interoperable CSS
+                            compileType: 'icss'
+                        },
                         sourceMap: true
                     }
                 }, {
@@ -86,7 +89,6 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            // esModule: false
                             // name: 'images/[name].[ext]'
                         }
                     }

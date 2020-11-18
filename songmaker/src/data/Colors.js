@@ -16,7 +16,7 @@ const colorsArray = [
 	[234, 87, 178] // B
 ];
 
-export function midiToColor(midiNote){
+export function midiToColor(midiNote) {
 	const arr = colorsArray[midiNote % colorsArray.length]
 	return `rgb(${arr.join(', ')})`
 }
