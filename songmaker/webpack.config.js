@@ -26,12 +26,12 @@ const webpack = require('webpack');
  */
 
 const TerserPlugin = require('terser-webpack-plugin');
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 
 module.exports = {
-    mode: 'development',
+    // mode: 'development',
     entry: './src/Main',
 
     output: {
@@ -47,68 +47,73 @@ module.exports = {
         modules: ['src', 'images', 'style', 'data', 'midi', 'history', 'modal', 'sound', 'grid', 'input', 'keyboard', 'mic', 'functions', 'top', 'bottom', 'cloud', 'node_modules'],
     },
 
-    plugins: [new webpack.ProgressPlugin()],
+    plugins: [
+        new webpack.ProgressPlugin(),
+        new CleanWebpackPlugin()
+    ],
 
     module: {
-        rules: [{
-            test: /\.(js|jsx)$/,
-            include: [],
-            loader: 'babel-loader'
-        }, {
-            test: /.(scss|css)$/,
-
-            use: [{
-                // creates style nodes from JS strings
-                loader: "style-loader"
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                include: [],
+                loader: 'babel-loader'
             }, {
-                // translates CSS into CommonJS
-                loader: "css-loader",
+                test: /\.s[ac]ss$/,
 
-                options: {
-                    sourceMap: true
-                }
+                use: [{
+                    // creates style nodes from JS strings
+                    loader: "style-loader"
+                }, {
+                    // translates CSS into CommonJS
+                    loader: "css-loader",
+
+                    options: {
+                        // modules: true,
+                        sourceMap: true
+                    }
+                }, {
+                    // compiles Sass to CSS
+                    loader: "sass-loader",
+
+                    options: {
+                        sourceMap: true
+                    }
+                }]
             }, {
-                // compiles Sass to CSS
-                loader: "sass-loader",
-
-                options: {
-                    sourceMap: true
-                }
+                test: /\.(svg|png)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            // esModule: false
+                            // name: 'images/[name].[ext]'
+                        }
+                    }
+                ],
+            }, {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            // attributes: {
+                            //     root: '.'
+                            // }
+                        }
+                    }
+                ],
+            }, {
+                // test: /\.(svg|png)$/,
+                // use: [
+                //     {
+                //         loader: 'file-loader',
+                //         options: {
+                //             name: 'images/[name].[ext]'
+                //         }
+                //     }
+                // ]
             }]
-        }, {
-            test: /\.(svg|png)$/,
-            use: [
-                {
-                    loader: 'url-loader',
-                    options: {
-                        // esModule: false
-                        // name: 'images/[name].[ext]'
-                    }
-                }
-            ],
-        }, {
-            test: /\.html$/,
-            use: [
-                {
-                    loader: 'html-loader',
-                    options: {
-                        // attributes: {
-                        //     root: '.'
-                        // }
-                    }
-                }
-            ],
-        }, {
-            // test: /\.(svg|png)$/,
-            // use: [
-            //     {
-            //         loader: 'file-loader',
-            //         options: {
-            //             name: 'images/[name].[ext]'
-            //         }
-            //     }
-            // ]
-        }]
     },
 
     optimization: {
