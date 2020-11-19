@@ -41,11 +41,11 @@ module.exports = {
         // publicPath: 'dist/'
     },
 
-    // devServer: {
-    //     host: 'localhost',
-    //     port: 9000,
-    //     contentBase: './dist',
-    // },
+    devServer: {
+        host: 'localhost',
+        port: 9000,
+        contentBase: './dist',
+    },
 
     resolve: {
         alias: {
@@ -96,10 +96,9 @@ module.exports = {
                 use: [
                     {
                         loader: 'url-loader',
-                        options: {
-                            // name: 'images/[name].[ext]',
-                            // publicPath: "/images"
-                        }
+                        // options: {
+                        //     name: '[path][name].[ext]',
+                        // }
                     }
                 ],
             }, {
