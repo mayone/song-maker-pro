@@ -39,6 +39,12 @@ module.exports = {
         filename: '[name].js'
     },
 
+    // devServer: {
+    //     host: 'localhost',
+    //     port: 9000,
+    //     contentBase: './dist',
+    // },
+
     resolve: {
         alias: {
             images: path.resolve(__dirname, 'images'),
