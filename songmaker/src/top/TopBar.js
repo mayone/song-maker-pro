@@ -1,20 +1,20 @@
 import 'style/top.scss'
-import {EventEmitter} from 'events'
-import {StartSongModal} from 'modal/StartSong'
-import {AboutModal} from 'modal/About'
-import {BackModal} from 'modal/Back'
-import {ShareModal} from 'modal/Share'
-import {SongOptions} from 'data/SongOptions'
-import {GamePad} from './GamePad'
-import {GA} from 'functions/GA'
+import { EventEmitter } from 'events'
+import { StartSongModal } from 'modal/StartSong'
+import { AboutModal } from 'modal/About'
+import { BackModal } from 'modal/Back'
+import { ShareModal } from 'modal/Share'
+import { SongOptions } from 'data/SongOptions'
+import { GamePad } from './GamePad'
+import { GA } from 'functions/GA'
 
 export class TopBar extends EventEmitter {
-	constructor(container=document.body, inputManager, midiData){
+	constructor(container = document.body, inputManager, midiData) {
 		super()
 
 		this.modals = {
-			startSong : false,
-			about : false,
+			startSong: false,
+			about: false,
 			share: false
 		}
 
@@ -42,8 +42,7 @@ export class TopBar extends EventEmitter {
 			this.emit('stop')
 			this.emit('restart')
 			this.emit('settings-update', new SongOptions().toJSON(), true)
-			GA.track({eventCategory: 'top', eventLabel: 'restart'})
-
+			GA.track({ eventCategory: 'top', eventLabel: 'restart' })
 		})
 
 		this.aboutButton = document.createElement('button')
@@ -62,7 +61,7 @@ export class TopBar extends EventEmitter {
 
 			this.emit('stop')
 
-			GA.track({eventCategory: 'top', eventLabel: 'about'})
+			GA.track({ eventCategory: 'top', eventLabel: 'about' })
 		})
 
 		this.backButton = document.createElement('button')
@@ -72,7 +71,7 @@ export class TopBar extends EventEmitter {
 		this.container.appendChild(this.backButton)
 		this.backButton.addEventListener('click', e => {
 
-			GA.track({eventCategory: 'top', eventLabel: 'back'})
+			GA.track({ eventCategory: 'top', eventLabel: 'back' })
 			e.preventDefault()
 			if (midiData.instrument.timeline._length < 1 && midiData.percussion.timeline._length < 1) {
 				this.emit('back')
@@ -93,10 +92,10 @@ export class TopBar extends EventEmitter {
 		// in case there's a share btn at top, lets put the share modal here
 		this.triggerShare = (data = false) => {
 			if (!this.modals.share) {
-				if(data === false) {
+				if (data === false) {
 					this.modals.share = new ShareModal(data)
 				} else if (data === 'immediate') {
-					this.modals.share = new ShareModal({immediate: true})
+					this.modals.share = new ShareModal({ immediate: true })
 				} else {
 					this.modals.share = new ShareModal(data)
 				}

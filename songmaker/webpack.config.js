@@ -32,11 +32,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     // mode: 'development',
+    context: __dirname,
     entry: './src/Main',
 
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].js',
+        // publicPath: 'dist/'
     },
 
     // devServer: {
@@ -50,7 +52,7 @@ module.exports = {
             images: path.resolve(__dirname, 'images'),
             style: path.resolve(__dirname, 'style')
         },
-        modules: ['src', 'style', 'data', 'midi', 'history', 'modal', 'sound', 'grid', 'input', 'keyboard', 'mic', 'functions', 'top', 'bottom', 'cloud', 'node_modules'],
+        modules: ['src', 'node_modules'],
     },
 
     plugins: [
@@ -95,7 +97,8 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            // name: 'images/[name].[ext]'
+                            // name: 'images/[name].[ext]',
+                            // publicPath: "/images"
                         }
                     }
                 ],
@@ -104,11 +107,11 @@ module.exports = {
                 use: [
                     {
                         loader: 'html-loader',
-                        options: {
-                            // attributes: {
-                            //     root: '.'
-                            // }
-                        }
+                        // options: {
+                        //     attributes: {
+                        //         root: '.'
+                        //     }
+                        // }
                     }
                 ],
             }, {
