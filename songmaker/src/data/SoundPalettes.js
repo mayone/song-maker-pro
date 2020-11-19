@@ -1,14 +1,14 @@
 const audioDir = 'audio'
-import {ToneAudioBuffer} from 'tone'
+import { ToneAudioBuffer } from 'tone'
 
 const notes = ['C', 'Ds', 'Fs', 'A']
 const tonalInstrumentNames = ['piano', 'marimba', 'woodwind', 'strings', 'synth']
 const percussionInstrumentNames = ['woodblock', 'kit', 'bongo', 'electronic']
 
-function makeInstrumentPalette(instFolder){
+function makeInstrumentPalette(instFolder) {
 	const ret = {}
 	const dir = `${audioDir}/${instFolder}`
-	for (let octave = 2; octave < 7; octave++){
+	for (let octave = 2; octave < 7; octave++) {
 		notes.forEach(note => {
 			const pitch = `${note}${octave}`
 			ret[pitch.replace('s', '#')] = `${dir}/${pitch}.mp3`
@@ -29,7 +29,7 @@ function makeInstrumentPaletteArray(arr) {
 function makeDrumPaletteArray(arr) {
 	var obj = {}
 	arr.forEach((name) => {
-		obj[name] = [`${audioDir}/${name}/low.mp3`,`${audioDir}/${name}/high.mp3`]
+		obj[name] = [`${audioDir}/${name}/low.mp3`, `${audioDir}/${name}/high.mp3`]
 	})
 	return obj
 }
@@ -56,12 +56,12 @@ loadBuffers()
 
 //https://en.wikipedia.org/wiki/General_MIDI#Parameter_interpretations
 const INSTRUMENT_PROGRAM_NUMBERS = {
-	piano : 1,
-	marimba : 13,
-	synth : 82
+	piano: 1,
+	marimba: 13,
+	synth: 82
 }
 
-export function getPatchNumber(instrument){
+export function getPatchNumber(instrument) {
 	return INSTRUMENT_PROGRAM_NUMBERS[instrument] || INSTRUMENT_PROGRAM_NUMBERS.piano
 }
 
