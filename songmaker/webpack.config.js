@@ -39,12 +39,17 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
         // publicPath: 'dist/'
+        // library: "songmaker"
     },
 
     devServer: {
         host: 'localhost',
         port: 9000,
-        contentBase: './dist',
+        contentBase: path.resolve(__dirname, 'dist'),
+        contentBasePublicPath: '/',
+        filename: '[name].js',
+        index: 'index.html',
+        headers: { "Access-Control-Allow-Origin": "*" }
     },
 
     resolve: {

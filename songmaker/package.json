@@ -30,6 +30,7 @@
   },
   "description": "My webpack project",
   "scripts": {
+    "start": "webpack serve",
     "build": "webpack --mode production",
     "dev": "webpack --mode development"
   },
