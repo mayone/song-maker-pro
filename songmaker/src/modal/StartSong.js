@@ -1,9 +1,9 @@
 import newSongHtml from './start_song.html'
-import {Modal} from './Modal'
-import {SongOptions} from 'data/SongOptions'
+import { Modal } from './Modal'
+import { SongOptions } from 'data/SongOptions'
 
 export class StartSongModal extends Modal {
-	constructor(currentSongOptions){
+	constructor(currentSongOptions) {
 		super(newSongHtml)
 
 		this.element.classList.add('start-song')
@@ -14,11 +14,11 @@ export class StartSongModal extends Modal {
 		const selects = document.getElementById('settings-modal').querySelectorAll('.select-wrap')
 		this.options = currentSongOptions.toJSON()
 
-		for (var i = 0; i < quant.length; i ++) {
+		for (var i = 0; i < quant.length; i++) {
 			this.setupQuantity(quant[i])
 		}
 
-		for (var j = 0; j < selects.length; j ++) {
+		for (var j = 0; j < selects.length; j++) {
 			this.setupSelect(selects[j])
 		}
 		this.setUpOctave()
@@ -33,15 +33,15 @@ export class StartSongModal extends Modal {
 		})
 	}
 
-	Event( event, params ) {
+	Event(event, params) {
 		params = params || { bubbles: false, cancelable: false, detail: undefined }
-		var evt = document.createEvent( 'CustomEvent' )
-		evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail )
+		var evt = document.createEvent('CustomEvent')
+		evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail)
 		return evt
 	}
 
 	updateQuantity(els) {
-		for (var i = 0; i < els.length; i ++) {
+		for (var i = 0; i < els.length; i++) {
 			var input = els[i].querySelector('input')
 			var cover = els[i].querySelector('.quantity-cover')
 			cover.value = input.value
@@ -75,20 +75,20 @@ export class StartSongModal extends Modal {
 		var event = new Event('change')
 		var min = input.getAttribute('min')
 		var max = input.getAttribute('max')
-		var addLabel = input.getAttribute('data-label') ?  ' ' + input.getAttribute('data-label') : ''
+		var addLabel = input.getAttribute('data-label') ? ' ' + input.getAttribute('data-label') : ''
 		var pressTimeout = false
 
-		input.changeMax = function(newMax) {
+		input.changeMax = function (newMax) {
 			max = newMax
 			if (input.value > newMax) {
 				changeInputTo(newMax)
 			}
 		}
 
-		var changeInput = function(change) {
+		var changeInput = function (change) {
 			var oldValue = parseInt(input.value, 10)
 			var newVal = oldValue
-			if ((change > 0 && (oldValue + change) <= max) || (change < 0 && (oldValue + change) >= min )) {
+			if ((change > 0 && (oldValue + change) <= max) || (change < 0 && (oldValue + change) >= min)) {
 				newVal = oldValue + change
 				input.value = newVal
 				cover.value = input.value
@@ -96,10 +96,10 @@ export class StartSongModal extends Modal {
 			input.dispatchEvent(event)
 		}
 
-		var changeInputTo = function(changeTo) {
+		var changeInputTo = function (changeTo) {
 			var oldValue = parseInt(input.value, 10)
 			var newValue = parseInt(changeTo, 10)
-			if ((newValue <= max) && (newValue >= min )) {
+			if ((newValue <= max) && (newValue >= min)) {
 				input.value = newValue
 				cover.value = input.value
 			} else {
@@ -108,7 +108,7 @@ export class StartSongModal extends Modal {
 			input.dispatchEvent(event)
 		}
 
-		var setChangeTimeout = function(change) {
+		var setChangeTimeout = function (change) {
 			pressTimeout = setTimeout(() => {
 				if (pressTimeout) {
 					changeInput(change)
@@ -145,7 +145,7 @@ export class StartSongModal extends Modal {
 			}
 		})
 
-		label.onclick = function() {
+		label.onclick = function () {
 			cover.focus()
 		}
 
@@ -153,33 +153,33 @@ export class StartSongModal extends Modal {
 			cover.select()
 		})
 
-		cover.onkeypress = function(event) {
+		cover.onkeypress = function (event) {
 			// allow only numbers
 			return event.charCode >= 48 && event.charCode <= 57
 		}
 
-		up.onclick = function() {
+		up.onclick = function () {
 			changeInput(1)
 		}
 
-		up.onmousedown = function() {
+		up.onmousedown = function () {
 			pressTimeout = setTimeout(() => {
 				setChangeTimeout(1)
 			}, 500)
 		}
 
-		down.onmousedown = function() {
+		down.onmousedown = function () {
 			pressTimeout = setTimeout(() => {
 				setChangeTimeout(-1)
 			}, 500)
 		}
 
-		down.onmouseup = down.onmouseout = up.onmouseup = up.onmouseout = function() {
+		down.onmouseup = down.onmouseout = up.onmouseup = up.onmouseout = function () {
 			clearTimeout(pressTimeout)
 			pressTimeout = false
 		}
 
-		down.onclick = function() {
+		down.onclick = function () {
 			changeInput(-1)
 		}
 
@@ -200,20 +200,20 @@ export class StartSongModal extends Modal {
 	}
 
 
-	get options(){
+	get options() {
 		const tempOptions = new SongOptions()
 		const keys = tempOptions.toJSON() // get a list of keys
-		for (let opt in keys){
+		for (let opt in keys) {
 			const input = this.element.querySelector(`[name=${opt}]`)
-			if (input){
+			if (input) {
 				//convert it to a number if possible
-				if (!isNaN(parseFloat(input.value))){
+				if (!isNaN(parseFloat(input.value))) {
 					tempOptions[opt] = parseFloat(input.value)
 				} else {
 					tempOptions[opt] = input.value
 				}
 			}
-			if(this.currentSettingsToKeep.indexOf(opt) > -1) {
+			if (this.currentSettingsToKeep.indexOf(opt) > -1) {
 				tempOptions[opt] = this.currentSongOptions[opt]
 			}
 		}
@@ -221,10 +221,10 @@ export class StartSongModal extends Modal {
 		return tempOptions.toJSON()
 	}
 
-	set options(options){
-		for (let opt in options){
+	set options(options) {
+		for (let opt in options) {
 			const input = this.element.querySelector(`[name=${opt}]`)
-			if (input){
+			if (input) {
 				input.value = options[opt]
 			}
 		}

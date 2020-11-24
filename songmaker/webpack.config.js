@@ -26,6 +26,7 @@ const webpack = require('webpack');
  */
 
 const TerserPlugin = require('terser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
@@ -38,6 +39,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
+        publicPath: '/'
         // publicPath: 'dist/'
         // library: "songmaker"
     },
@@ -54,14 +56,18 @@ module.exports = {
 
     resolve: {
         alias: {
+            style: path.resolve(__dirname, 'style'),
             images: path.resolve(__dirname, 'images'),
-            style: path.resolve(__dirname, 'style')
+            audio: path.resolve(__dirname, 'audio')
         },
         modules: ['src', 'node_modules'],
     },
 
     plugins: [
         new webpack.ProgressPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'Song Maker',
+        }),
         new CleanWebpackPlugin()
     ],
 
@@ -101,9 +107,19 @@ module.exports = {
                 use: [
                     {
                         loader: 'url-loader',
-                        // options: {
-                        //     name: '[path][name].[ext]',
-                        // }
+                        options: {
+                            name: '[path][name].[ext]',
+                        }
+                    }
+                ],
+            }, {
+                test: /\.mp3$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]',
+                        }
                     }
                 ],
             }, {

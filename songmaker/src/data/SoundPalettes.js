@@ -1,4 +1,4 @@
-const audioDir = 'audio'
+const audioDir = '~audio'
 import { ToneAudioBuffer } from 'tone'
 
 const notes = ['C', 'Ds', 'Fs', 'A']
