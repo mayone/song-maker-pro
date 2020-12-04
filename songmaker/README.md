@@ -1,5 +1,5 @@
 ## Prerequisites
-- Song Maker requires node, npm and webpack to build
+- Song Maker requires node, npm, yarn and webpack to build
 
 #### Install webpack
 ```sh
@@ -14,14 +14,14 @@ npm install -g webpack-cli
 #### Install dependencies
 - `yarn install` to install all the dependencies
 
-#### Build
-- `yarn dev` to build for development
-- `yarn build` to build for production
+#### Build and Run
+- `yarn [dev|build]` to build for development/production
+    - Open `index.html` in browser
 
 ---
 
-## Run
-- Open `index.html` in browser
+#### Build and Run on Server
+- `yarn start`
 
 ---
 
