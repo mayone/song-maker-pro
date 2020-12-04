@@ -28,7 +28,7 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const CopyPlugin = require("copy-webpack-plugin");
 
 
 module.exports = {
@@ -51,7 +51,8 @@ module.exports = {
         contentBasePublicPath: '/',
         filename: '[name].js',
         index: 'index.html',
-        headers: { "Access-Control-Allow-Origin": "*" }
+        headers: { "Access-Control-Allow-Origin": "*" },
+        hot: true
     },
 
     resolve: {
@@ -68,7 +69,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Song Maker',
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [
+                { from: "audio", to: "audio" },
+                { from: "images", to: "images" },
+            ],
+        }),
     ],
 
     module: {
@@ -113,15 +120,16 @@ module.exports = {
                     }
                 ],
             }, {
-                test: /\.mp3$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[path][name].[ext]',
-                        }
-                    }
-                ],
+                // test: /\.mp3$/,
+                // use: [
+                //     {
+                //         loader: 'url-loader',
+                //         options: {
+                //             name: '[path][name].[ext]',
+                //             // emitFile: false,
+                //         }
+                //     }
+                // ],
             }, {
                 test: /\.html$/,
                 use: [

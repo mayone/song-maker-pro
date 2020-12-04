@@ -41,6 +41,7 @@
     "@webpack-cli/init": "^1.0.3",
     "babel-loader": "^8.2.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "copy-webpack-plugin": "^6.3.2",
     "node-sass": "^5.0.0",
     "prettier": "^2.1.2",
     "terser-webpack-plugin": "^5.0.3",
