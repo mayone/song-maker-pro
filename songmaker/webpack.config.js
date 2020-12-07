@@ -39,8 +39,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
-        publicPath: '/'
-        // publicPath: 'dist/'
+        publicPath: '/',
         // library: "songmaker"
     },
 
@@ -58,8 +57,7 @@ module.exports = {
     resolve: {
         alias: {
             style: path.resolve(__dirname, 'style'),
-            images: path.resolve(__dirname, 'images'),
-            audio: path.resolve(__dirname, 'audio')
+            images: path.resolve(__dirname, 'images')
         },
         modules: ['src', 'node_modules'],
     },
@@ -113,23 +111,12 @@ module.exports = {
                 test: /\.(svg|png)$/,
                 use: [
                     {
-                        loader: 'url-loader',
+                        loader: 'file-loader',
                         options: {
                             name: '[path][name].[ext]',
                         }
                     }
                 ],
-            }, {
-                // test: /\.mp3$/,
-                // use: [
-                //     {
-                //         loader: 'url-loader',
-                //         options: {
-                //             name: '[path][name].[ext]',
-                //             // emitFile: false,
-                //         }
-                //     }
-                // ],
             }, {
                 test: /\.html$/,
                 use: [
@@ -142,16 +129,6 @@ module.exports = {
                         // }
                     }
                 ],
-            }, {
-                // test: /\.(svg|png)$/,
-                // use: [
-                //     {
-                //         loader: 'file-loader',
-                //         options: {
-                //             name: 'images/[name].[ext]'
-                //         }
-                //     }
-                // ]
             }]
     },
 
