@@ -38,7 +38,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
+        filename: 'build/[name].js',
         publicPath: '/',
         // library: "songmaker"
     },
@@ -66,6 +66,7 @@ module.exports = {
         new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({
             title: 'Song Maker',
+            favicon: 'images/favicon.png'
         }),
         new CleanWebpackPlugin(),
         new CopyPlugin({

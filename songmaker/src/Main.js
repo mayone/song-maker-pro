@@ -18,10 +18,10 @@ const songId = window.location.pathname.indexOf('/song/') > -1 ? window.location
 // MODEL
 ///////////////////////////////////////////////////////////////////////////////
 
-import {bus} from 'data/EventBus'
-import {SongOptions} from 'data/SongOptions'
-import {MidiData} from 'midi/Data'
-import {History} from 'history/History'
+import { bus } from 'data/EventBus'
+import { SongOptions } from 'data/SongOptions'
+import { MidiData } from 'midi/Data'
+import { History } from 'history/History'
 
 new History()
 const songOptions = new SongOptions()
@@ -30,7 +30,7 @@ songOptions.on('load-success', () => {
 	//sound.options.changeInstrument()
 	if (modals.loading) {
 		modals.loading.close('sampler')
-		if(!embedId && !songId) {
+		if (!embedId && !songId) {
 			modals.loading.close('grid')
 		}
 	}
@@ -41,7 +41,7 @@ songOptions.on('load-success', () => {
 // MODALS (loading, so putting at top)
 ///////////////////////////////////////////////////////////////////////////////
 
-import {LoadingModal} from 'modal/Loading'
+import { LoadingModal } from 'modal/Loading'
 const modals = {}
 modals.loading = new LoadingModal()
 
@@ -49,7 +49,7 @@ modals.loading = new LoadingModal()
 // SOUND
 ///////////////////////////////////////////////////////////////////////////////
 
-import {Sound} from 'sound/Sound'
+import { Sound } from 'sound/Sound'
 
 const sound = new Sound(songOptions, midiData)
 
@@ -64,7 +64,7 @@ sound.on('export-complete', () => {
 // GRID UI
 ///////////////////////////////////////////////////////////////////////////////
 
-import {Grid} from 'grid/Grid'
+import { Grid } from 'grid/Grid'
 
 const grid = new Grid(document.body, songOptions, midiData, sound, !!embedId)
 // grid.fitBars()
@@ -87,7 +87,7 @@ grid.on('load-success', () => {
 // INPUT
 ///////////////////////////////////////////////////////////////////////////////
 
-import {InputManager} from 'input/Manager'
+import { InputManager } from 'input/Manager'
 const inputManager = new InputManager()
 inputManager.registerInstrument(grid.percussion)
 inputManager.registerInstrument(grid.instrument, true)
@@ -108,7 +108,7 @@ function onSongChanged() {
 	}
 }
 
-function onSettingsUpdate(options, clear=false) {
+function onSettingsUpdate(options, clear = false) {
 	let prevOptions = songOptions.toJSON()
 	bus.emit('history:push', {
 		type: 'save',
@@ -123,11 +123,11 @@ function onSettingsUpdate(options, clear=false) {
 }
 
 // REGULAR KEYBOARD
-import {KeyboardInput} from 'input/Keyboard'
+import { KeyboardInput } from 'input/Keyboard'
 new KeyboardInput(inputManager)
 
 // MIDI Keyboard
-import {Keyboard} from 'keyboard/Keyboard'
+import { Keyboard } from 'keyboard/Keyboard'
 const keyboard = new Keyboard(songOptions, inputManager)
 keyboard.connected().then(() => {
 	bottom.enableKeyboard()
@@ -138,7 +138,7 @@ keyboard.on('outofbounds', () => {
 })
 
 // MICROPHONE
-import {Microphone} from 'mic/Microphone'
+import { Microphone } from 'mic/Microphone'
 const microphone = new Microphone(songOptions, inputManager)
 grid.instrument.renderer.registerDrawMethod(microphone.render)
 
@@ -147,7 +147,7 @@ grid.instrument.renderer.registerDrawMethod(microphone.render)
 // accessibility
 ///////////////////////////////////////////////////////////////////////////////
 
-import {TabClickOutline} from 'functions/TabClickOutline'
+import { TabClickOutline } from 'functions/TabClickOutline'
 new TabClickOutline()
 
 
@@ -155,7 +155,7 @@ new TabClickOutline()
 // focus
 ///////////////////////////////////////////////////////////////////////////////
 
-import {WindowFocus} from 'functions/WindowFocus'
+import { WindowFocus } from 'functions/WindowFocus'
 const windowFocus = new WindowFocus()
 windowFocus.on('focus-change', (bool) => {
 	if (!bool && document.body.classList.contains('touch-device')) {
@@ -168,7 +168,7 @@ windowFocus.on('focus-change', (bool) => {
 // TOP BAR
 ///////////////////////////////////////////////////////////////////////////////
 
-import {TopBar} from 'top/TopBar'
+import { TopBar } from 'top/TopBar'
 
 const topBar = new TopBar(document.body, inputManager, midiData)
 
@@ -203,12 +203,12 @@ topBar.on('request-midi', () => {
 // SONG MAKER
 ///////////////////////////////////////////////////////////////////////////////
 
-import {Bottom} from 'bottom/Bottom'
+import { Bottom } from 'bottom/Bottom'
 
 const bottom = new Bottom(document.body, songOptions)
 bottom.on('play', start => {
 	sound.resumeContext()
-	if (start){
+	if (start) {
 		sound.start('+.1', 0)
 	} else {
 		sound.stop()
@@ -217,7 +217,7 @@ bottom.on('play', start => {
 
 bottom.on('play-from-selector', start => {
 	sound.resumeContext()
-	if (start){
+	if (start) {
 		let duration = (songOptions.totalBeats * 60 / songOptions.tempo)
 		let offset = duration * inputManager.selector.position.x / songOptions.totalSubBeats
 		sound.start('+.1', offset)
@@ -252,6 +252,7 @@ bottom.on('undo', () => {
 	} else {
 		bottom.disableSaveButton(false)
 	}
+	console.log("hello")
 })
 bottom.on('save', () => {
 	cloud.save()
@@ -337,7 +338,7 @@ document.body.addEventListener('touchend', () => {
 // CLOUD
 ///////////////////////////////////////////////////////////////////////////////
 
-import {Cloud} from 'cloud/Cloud'
+import { Cloud } from 'cloud/Cloud'
 const cloud = new Cloud(songOptions, midiData)
 cloud.emitter.on('save-success', (data) => {
 	topBar.triggerShare(data)
