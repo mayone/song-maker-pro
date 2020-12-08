@@ -2,23 +2,23 @@ import cssColors from 'style/colors.scss'
 import tinycolor from 'tinycolor2'
 
 const colorsArray = [
-	[227, 48, 89],	// C
-	[247, 88, 57],	// C#
-	[247, 148, 61],	// D
-	[243, 183, 47],	// D#
-	[237, 217, 41],	// E
-	[149, 198, 49],	// F
-	[86, 167, 84],	// F#
-	[17, 130, 109],	// G
-	[49, 96, 163],	// G#
-	[91, 55, 204],	// A
-	[163, 71, 191],	// Bb
-	[234, 87, 178] // B
+    [227, 48, 89],  // C
+    [247, 88, 57],  // C#
+    [247, 148, 61], // D
+    [243, 183, 47], // D#
+    [237, 217, 41], // E
+    [149, 198, 49], // F
+    [86, 167, 84],  // F#
+    [17, 130, 109], // G
+    [49, 96, 163],  // G#
+    [91, 55, 204],  // A
+    [163, 71, 191], // Bb
+    [234, 87, 178]  // B
 ];
 
 export function midiToColor(midiNote) {
-	const arr = colorsArray[midiNote % colorsArray.length]
-	return `rgb(${arr.join(', ')})`
+    const arr = colorsArray[midiNote % colorsArray.length]
+    return `rgb(${arr.join(', ')})`
 }
 export const red = cssColors.red
 

@@ -1,12 +1,12 @@
-import {AbstractInstrument} from './AbstractInstrument'
-import {PercussionCanvasRenderer} from './PercussionCanvasRenderer'
+import { AbstractInstrument } from './AbstractInstrument'
+import { PercussionCanvasRenderer } from './PercussionCanvasRenderer'
 
 export class Percussion extends AbstractInstrument {
-	constructor(...args) {
-		super(...args, 'percussion-canvas')
-	}
+    constructor(...args) {
+        super(...args, 'percussion-canvas')
+    }
 
-	rendererClass() {
-		return PercussionCanvasRenderer
-	}
+    rendererClass() {
+        return PercussionCanvasRenderer
+    }
 }
