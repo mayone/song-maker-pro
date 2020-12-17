@@ -64,7 +64,6 @@ export class Sound extends EventEmitter {
         a.download = 'song-maker.mid'
         a.click()
         window.URL.revokeObjectURL(url)
-
     }
 
     //just an alias for the midi data tempo

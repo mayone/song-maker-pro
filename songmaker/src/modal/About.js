@@ -1,14 +1,14 @@
 import aboutHtml from './about.html'
-import {Modal} from './Modal'
+import { Modal } from './Modal'
 
 export class AboutModal extends Modal {
-	constructor(){
-		super(aboutHtml)
+    constructor() {
+        super(aboutHtml)
 
-		this.element.classList.add('open-about')
-	}
+        this.element.classList.add('open-about')
+    }
 
-	closeModal() {
-		this.close()
-	}
+    closeModal() {
+        this.close()
+    }
 }
