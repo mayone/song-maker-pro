@@ -1,5 +1,6 @@
 import { EventEmitter } from 'events'
 import { rAF } from 'grid/AnimationFrame'
+import { SITE_URL_PATH } from '../data/Config'
 
 export class Url extends EventEmitter {
     constructor() {
@@ -34,11 +35,11 @@ export class Url extends EventEmitter {
         }
     }
     setId(id) {
-        this.currentURL = `/Song-Maker/song/${id}`
+        this.currentURL = `${SITE_URL_PATH}/song/${id}`
         window.history.pushState({}, `Song ${id}`, this.currentURL)
     }
     clear() {
-        this.currentURL = '/Song-Maker/'
+        this.currentURL = `${SITE_URL_PATH}/`
         window.history.pushState({}, `Song Maker`, this.currentURL)
     }
 }

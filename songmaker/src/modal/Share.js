@@ -1,6 +1,7 @@
 import shareHtml from './share.html'
 import { Modal } from './Modal'
 import { GA } from 'functions/GA'
+import { SITE_URL_PATH } from '../data/Config'
 import 'style/modal-share.scss'
 
 export class ShareModal extends Modal {
@@ -131,7 +132,7 @@ export class ShareModal extends Modal {
     populateData(result) {
         var sUrl = this.expandable.querySelector('.short-url')
         var embedArea = this.expandable.querySelector('.iframe-code')
-        var embedCode = '<iframe width="560" height="315" src="' + window.location.origin + '/Song-Maker/embed/' + result.id + '" frameborder="0" allowfullscreen></iframe>'
+        var embedCode = '<iframe width="560" height="315" src="' + window.location.origin + `${SITE_URL_PATH}/embed/` + result.id + '" frameborder="0" allowfullscreen></iframe>'
         this.currentId = result.id
         this.element.classList.add('data-loaded')
         this.element.querySelector('.saved-circle').classList.add('done')
