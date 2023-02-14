@@ -1,6 +1,14 @@
+# Arpeggios
+
+Arpeggios requires node, npm and webpack to build.
+
+## Run
+
+1. `npm install` or `yarn` to install all the dependencies
+2. `npm start` or `yarn start` to run locally
+3. Go to http://localhost:9000/
+
 ## Build
 
-Arpeggios requires node, npm and webpack to build. 
-
-1. `npm install` to install all the dependencies
-2. `webpack -p` to build the production code
+1. `npm install` or `yarn install` to install all the dependencies
+2. `npm run build` or `yarn build` to build the production code

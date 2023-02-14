@@ -29,6 +29,13 @@ module.exports = {
 		chunkFilename: "./build/[id].js",
 		sourceMapFilename: "[file].map",
 	},
+	devServer: {
+		static: {
+			directory: path.join(__dirname, '/'),
+		},
+		compress: true,
+		port: 9000,
+	},
 	resolve: {
 		// root: __dirname,
 		alias: {
