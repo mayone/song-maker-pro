@@ -1,6 +1,6 @@
 # Arpeggios
 
-Arpeggios requires node, npm and webpack to build.
+Arpeggios requires node and npm to build.
 
 ## Run
 
@@ -10,5 +10,5 @@ Arpeggios requires node, npm and webpack to build.
 
 ## Build
 
-1. `npm install` or `yarn install` to install all the dependencies
+1. `npm install` or `yarn` to install all the dependencies
 2. `npm run build` or `yarn build` to build the production code
