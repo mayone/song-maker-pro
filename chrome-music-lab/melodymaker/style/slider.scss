@@ -18,13 +18,13 @@ $sliderHeight : 28px;
 		left: 0px;
 		position: absolute;
 		top: 50%;
-		margin-top: -$railHeight/2;
+		margin-top: calc(-1 * $railHeight / 2);
 		pointer-events: none;
-		border-radius: $railHeight/2;
+		border-radius: calc($railHeight / 2);
 
 		#Fill {
-			border-top-left-radius: $railHeight/2;
-			border-bottom-left-radius: $railHeight/2;
+			border-top-left-radius: calc($railHeight / 2);
+			border-bottom-left-radius: calc($railHeight / 2);
 			position: absolute;
 			top: 0px;
 			left: 0px;
@@ -38,12 +38,12 @@ $sliderHeight : 28px;
 		position: absolute;
 		top: 0px;
 		left: 50%;
-		border-radius: $sliderHeight/2;
+		border-radius: calc($sliderHeight / 2);
 		width: $sliderHeight;
 		height: $sliderHeight;
 		background-color: $blue;
 		pointer-events: none;
-		// margin-left: -$sliderHeight/2;
+		// margin-left: calc(-1 * $sliderHeight / 2);
 	}
 
 	#Range {

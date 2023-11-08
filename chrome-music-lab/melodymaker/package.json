@@ -5,6 +5,7 @@
   "main": "dist/Main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "webpack serve",
     "build": "webpack"
   },
   "author": "Yotam Mann",
@@ -14,7 +15,7 @@
     "css-loader": "^5.0.1",
     "domready": "^1.0.8",
     "file-loader": "^6.2.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "8.0.0",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
     "startaudiocontext": "^1.1.0",
@@ -23,7 +24,8 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "webpack": "^5.4.0",
-    "webpack-cli": "^4.2.0"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
   }
 }

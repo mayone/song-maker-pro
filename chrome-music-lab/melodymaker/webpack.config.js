@@ -20,6 +20,7 @@ const webpack = require('webpack');
 var PROD = JSON.parse(process.env.PROD_ENV || '0');
 
 module.exports = {
+	mode: 'development',
 	entry: {
 		"Main": "./src/Main",
 	},
@@ -32,6 +33,13 @@ module.exports = {
 			style: path.resolve(__dirname, 'style/')
 		},
 		modules: ["style", "src", "third_party/Tone.js/", "third_party", "node_modules"],
+	},
+	devServer: {
+		static: {
+			directory: path.join(__dirname, '/'),
+		},
+		compress: true,
+		port: 9000,
 	},
 	plugins: PROD ? [
 		new webpack.optimize.UglifyJsPlugin({ minimize: true })

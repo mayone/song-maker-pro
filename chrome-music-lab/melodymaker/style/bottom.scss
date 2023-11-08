@@ -21,7 +21,7 @@
 
 		.Button {
 			position: absolute;
-			bottom: ($bottomHeight - $buttonSize) / 2;
+			bottom: calc(($bottomHeight - $buttonSize) / 2);
 			width: $buttonSize;
 			height: $buttonSize;
 			line-height: $buttonSize;

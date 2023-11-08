@@ -160,8 +160,13 @@ define(['style/grid.scss', 'data/Config', 'data/Colors', 'grid/Tile', 'grid/AI',
 	};
 
 	Grid.prototype._hover = function(e) {
-		const x = e.clientX || e.touches[0].clientX;
-        const y = e.clientY || e.touches[0].clientY;
+		// Mobile uses touches
+		const x = e.clientX !== undefined ?
+			e.clientX :
+			(e.touches && e.touches[0].clientX);
+		const y = e.clientY !== undefined ?
+			e.clientY :
+			(e.touches && e.touches[0].clientY);
 
 		var tilePos = this._tileAtPosition(x, y);
 
