@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-define(['Tone/event/Sequence', 'data/Config'], function(Sequence, Config) {
+define(['Tone', 'data/Config'], function(Tone, Config) {
 
 	var Sequencer = function(callback) {
 
@@ -23,7 +23,7 @@ define(['Tone/event/Sequence', 'data/Config'], function(Sequence, Config) {
 			steps.push(i);
 		}
 
-		this.seq = new Sequence(callback, steps, '8n').start(0);
+		this.seq = new Tone.Sequence(callback, steps, '8n').start(0);
 	};
 
 	return Sequencer;

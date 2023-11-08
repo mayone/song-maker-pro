@@ -32,7 +32,7 @@ module.exports = {
 		alias: {
 			style: path.resolve(__dirname, 'style/')
 		},
-		modules: ["style", "src", "third_party/Tone.js/", "third_party", "node_modules"],
+		modules: ["style", "src", "node_modules"],
 	},
 	devServer: {
 		static: {

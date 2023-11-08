@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-define(['./SliderBar', 'Tone/core/Transport'], function(SliderBar, Transport) {
+define(['./SliderBar', 'Tone'], function(SliderBar, Tone) {
 
 	var Slider = function(container) {
 		this._min = 70;
@@ -24,7 +24,7 @@ define(['./SliderBar', 'Tone/core/Transport'], function(SliderBar, Transport) {
 		this.sliderContainer.id = 'SliderContainer';
 		container.appendChild(this.sliderContainer);
 
-		this.slider = new SliderBar(this.sliderContainer, this._min, this._max, Transport.bpm.value);
+		this.slider = new SliderBar(this.sliderContainer, this._min, this._max, Tone.Transport.bpm.value);
 		this.slider.onchange = this._changed.bind(this);
 
 		this.rabbit = document.createElement('div');
@@ -65,7 +65,7 @@ define(['./SliderBar', 'Tone/core/Transport'], function(SliderBar, Transport) {
 
 	Slider.prototype._changed = function(tempo) {
 		this.input.value = tempo;
-		Transport.bpm.value = this._useMinMax(tempo);
+		Tone.Transport.bpm.value = this._useMinMax(tempo);
 	};
 
 	return Slider;

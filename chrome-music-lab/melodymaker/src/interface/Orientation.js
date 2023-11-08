@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-define(["Tone/core/Transport"], function (Transport) {
+define(["Tone"], function (Tone) {
 
 	var OrientationListener = function(callback){
 
@@ -29,7 +29,7 @@ define(["Tone/core/Transport"], function (Transport) {
 	OrientationListener.prototype._changed = function(){
 		//check if it's landscape
 		if (Math.abs(window.orientation) === 90){
-			if (Transport.state === "started"){
+			if (Tone.Transport.state === Tone.State.Started){
 				this._callback();
 			}
 		}
@@ -38,7 +38,7 @@ define(["Tone/core/Transport"], function (Transport) {
 	OrientationListener.prototype._screenChange = function(){		
 		//check if it's landscape
 		if (Math.abs(window.screen.orientation.angle) === 90){
-			if (Transport.state === "started"){
+			if (Tone.Transport.state === Tone.State.Started){
 				this._callback();
 			}
 		}

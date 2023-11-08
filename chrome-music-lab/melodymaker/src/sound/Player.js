@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-define(['Tone/instrument/SimpleSynth', 'Tone/core/Master', 'data/Config', 'Tone/core/Transport', 'Tone/instrument/PolySynth'],
-	function(SimpleSynth, Master, Config, Transport, PolySynth) {
+define(['Tone', 'data/Config'],
+	function(Tone, Config) {
 
 	var Player = function() {
 
-		// Transport._clock.lookAhead = 0.05;
+		// Tone.Transport._clock.lookAhead = 0.05;
 
-		this.melodyPlayer = new PolySynth(3, SimpleSynth).set({
+		this.melodyPlayer = new Tone.PolySynth(3, Tone.Synth).set({
 			'volume' : -4,
 			'oscillator' : {
 				'type' : 'triangle17',
@@ -38,7 +38,7 @@ define(['Tone/instrument/SimpleSynth', 'Tone/core/Master', 'data/Config', 'Tone/
 		this.melodyPlayer.stealVoices = false;
 
 
-		this.harmonyPlayer = new PolySynth(2, SimpleSynth).set({
+		this.harmonyPlayer = new Tone.PolySynth(2, Tone.Synth).set({
 			'volume' : -8,
 			'oscillator' : {
 				'type' : 'triangle11'
@@ -75,7 +75,7 @@ define(['Tone/instrument/SimpleSynth', 'Tone/core/Master', 'data/Config', 'Tone/
 	};
 
 	Player.prototype.tap = function(note) {
-		if (Transport.state === 'stopped') {
+		if (Tone.Transport.state === Tone.State.Stopped) {
 			var noteIndex = Config.pitches.length - note - 1;
 			var pitch = Config.pitches[noteIndex];
 			this.melodyPlayer.triggerAttackRelease(pitch, '8t', '+0.01', this._randomVelocity());

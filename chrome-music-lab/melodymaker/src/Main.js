@@ -15,8 +15,8 @@
  */
 
 require(['domready', 'style/main.scss', 'grid/Grid', 'interface/Bottom', 'sound/Sequencer',
-	'Tone/core/Transport', 'sound/Player', 'StartAudioContext'],
-	function (domReady, mainStyle, Grid, Bottom, Sequencer, Transport, Player, StartAudioContext) {
+	'Tone', 'sound/Player', 'StartAudioContext'],
+	function (domReady, mainStyle, Grid, Bottom, Sequencer, Tone, Player, StartAudioContext) {
 		domReady(function () {
 
 			window.parent.postMessage("loaded", "*");
@@ -39,7 +39,7 @@ require(['domready', 'style/main.scss', 'grid/Grid', 'interface/Bottom', 'sound/
 				player.tap(note);
 			};
 
-			Transport.on('stop', function () {
+			Tone.Transport.on('stop', function () {
 				grid.select(-1);
 			});
 
@@ -53,7 +53,7 @@ require(['domready', 'style/main.scss', 'grid/Grid', 'interface/Bottom', 'sound/
 				var iOSTapper = document.createElement("div");
 				iOSTapper.id = "iOSTap";
 				document.body.appendChild(iOSTapper);
-				new StartAudioContext(Transport.context, iOSTapper).then(function () {
+				new StartAudioContext(Tone.Transport.context, iOSTapper).then(function () {
 					iOSTapper.remove();
 					window.parent.postMessage('ready', '*');
 				});

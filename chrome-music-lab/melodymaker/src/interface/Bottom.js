@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-define(['style/bottom.scss', 'interface/Slider', 'Tone/core/Transport', 'interface/Orientation'],
-function(bottomStyle, Slider, Transport, Orientation) {
+define(['style/bottom.scss', 'interface/Slider', 'Tone', 'interface/Orientation'],
+function(bottomStyle, Slider, Tone, Orientation) {
 
 
 	var Bottom = function(container) {
@@ -54,25 +54,26 @@ function(bottomStyle, Slider, Transport, Orientation) {
 
 	Bottom.prototype._playClicked = function(e) {
 		e.preventDefault();
-		if (Transport.state === 'started') {
+
+		if (Tone.Transport.state === Tone.State.Started) {
 			this._playButton.classList.remove('Playing');
 			this._playButton.classList.add('icon-svg_play');
 			this._playButton.classList.remove('icon-svg_pause');
-			Transport.stop();
+			Tone.Transport.stop();
 		} else {
 			this._playButton.classList.add('Playing');
 			this._playButton.classList.remove('icon-svg_play');
 			this._playButton.classList.add('icon-svg_pause');
-			Transport.start('+0.1');
+			Tone.Transport.start('+0.1');
 		}
 	};
 
 	Bottom.prototype._rotated = function() {
-		if (Transport.state === 'started') {
+		if (Tone.Transport.state === Tone.State.Started) {
 			this._playButton.classList.remove('Playing');
 			this._playButton.classList.add('icon-svg_play');
 			this._playButton.classList.remove('icon-svg_pause');
-			Transport.stop();
+			Tone.Transport.stop();
 		}
 	};
 
