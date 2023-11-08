@@ -10,8 +10,6 @@
   },
   "author": "Yotam Mann",
   "dependencies": {
-    "autoprefixer": "^6.3.1",
-    "autoprefixer-loader": "^3.2.0",
     "css-loader": "^5.0.1",
     "domready": "^1.0.8",
     "file-loader": "^6.2.0",
