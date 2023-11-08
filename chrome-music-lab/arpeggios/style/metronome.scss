@@ -26,8 +26,8 @@
 		left: 50%;
 		width: $CheckboxSize;
 		height: $CheckboxSize;
-		margin-left: -$CheckboxSize / 2;
-		margin-top: -$CheckboxSize / 2;
+		margin-left: calc(-1 * $CheckboxSize / 2);
+		margin-top: calc(-1 * $CheckboxSize / 2);
 		background-image: url(../images/icon_check_grey.png);
 		background-size: 100% 100%;
 	}
@@ -46,8 +46,8 @@
 	#MetroWheel {
 		height: auto;
 		width: $WheelSize;
-		margin-left: -$WheelSize / 2;
-		margin-top: -$WheelSize / 2;
+		margin-left: calc(-1 * $WheelSize / 2);
+		margin-top: calc(-1 * $WheelSize / 2);
 		position: absolute;
 		left: 50%;
 		top: 50%;
@@ -60,14 +60,14 @@
 
 		@include SmallWidth {
 			width: $SmallWheelSize;
-			margin-left: -$SmallWheelSize / 2;
-			margin-top: -$SmallWheelSize / 2;
+			margin-left: calc(-1 * $SmallWheelSize / 2);
+			margin-top: calc(-1 * $SmallWheelSize / 2);
 
 			#WheelHandle {
 				width: $SmallHandlSize;
-				margin-left: -$SmallHandlSize/2;
+				margin-left: calc(-1 * $SmallHandlSize / 2);
 				height: $SmallHandlSize;
-				margin-top: -$SmallHandlSize/2;
+				margin-top: calc(-1 * $SmallHandlSize / 2);
 			}
 		}
 
@@ -77,9 +77,9 @@
 			left: 0px;
 			top: 0px;
 			width: $HandlSize;
-			margin-left: -$HandlSize/2;
+			margin-left: calc(-1 * $HandlSize / 2);
 			height: $HandlSize;
-			margin-top: -$HandlSize/2;
+			margin-top: calc(-1 * $HandlSize / 2);
 			background-color: white;
 			pointer-events: none;
 			z-index: 100;
@@ -95,8 +95,8 @@
 			pointer-events: none;
 			background-color: $orange;
 			border-radius: 50%;
-			left: (100% - $BlinkSize) / 2;
-			top: (100% - $BlinkSize) / 2;
+			left: calc((100% - $BlinkSize) / 2);
+			top: calc((100% - $BlinkSize) / 2);
 			opacity: 0;
 		}
 

@@ -26,7 +26,7 @@ $PartMargin: 10px;
 		opacity: 0.3;
 		left: 0px;
 		height: 100%;
-		margin-left: -$LoopPositionWidth/2;
+		margin-left: calc(-1 * $LoopPositionWidth / 2);
 		position: absolute;
 		top: 0px;
 		z-index: 100;
@@ -71,7 +71,7 @@ $PartMargin: 10px;
 
 		@for $item from 1 through 40{
 			.Note:nth-child(#{$item}){ 
-				transition-delay: #{$item / 60}s; 
+				transition-delay: #{calc($item / 60)}s; 
 			}
 		} 
 	}

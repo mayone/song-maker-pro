@@ -99,8 +99,8 @@ $Margin : 10px;
 		left: 50%;
 		width: $PlayButtonSize;
 		height: $PlayButtonSize;
-		margin-left: -$PlayButtonSize/2;
-		margin-top: -$PlayButtonSize/2;
+		margin-left: calc(-1 * $PlayButtonSize / 2);
+		margin-top: calc(-1 * $PlayButtonSize / 2);
 		font-size: $PlayButtonSize;
 		line-height: $PlayButtonSize;
 		background-color: white;
@@ -109,8 +109,8 @@ $Margin : 10px;
 		@include SmallWidth {
 			width: $SmallPlayButtonSize;
 			height: $SmallPlayButtonSize;
-			margin-left: -$SmallPlayButtonSize/2;
-			margin-top: -$SmallPlayButtonSize/2;
+			margin-left: calc(-1 * $SmallPlayButtonSize / 2);
+			margin-top: calc(-1 * $SmallPlayButtonSize / 2);
 			font-size: $SmallPlayButtonSize;
 			line-height: $SmallPlayButtonSize;
 		}

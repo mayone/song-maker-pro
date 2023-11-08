@@ -35,7 +35,7 @@ $SpinnerSize : 100px;
 		top: 50%;
 		left: 0px;
 		height: $SpinnerSize;
-		margin-top: -$SpinnerSize / 2;
+		margin-top: calc(-1 * $SpinnerSize / 2);
 		width: 100%;
 
 		.Icon {
@@ -53,7 +53,7 @@ $SpinnerSize : 100px;
 			position: absolute;
 			top: 0px;
 			left: 50%;
-			margin-left: -$SpinnerSize / 2;
+			margin-left: calc(-1 * $SpinnerSize / 2);
 			animation: rotation 1.4s linear infinite;
 			stroke: $lightGrey;
 			width: $SpinnerSize;
